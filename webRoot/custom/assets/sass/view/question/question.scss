@@ -1,0 +1,104 @@
+@mixin container(){
+	width: 1100px;
+	margin:0 auto;
+}
+@mixin after(){
+	&::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
+
+.mailWrap {
+	@include container();
+	height: 1360px;
+	padding:40px 200px 0 200px;
+	box-sizing: border-box;
+	.titleWrap {
+		img {
+			width: 100%;
+		}
+		padding-bottom: 30px;
+		border-bottom: 3px solid #4f7dd4;
+	}
+	.lists {
+		margin-top: 10px;
+		.list {
+			@include after();
+			height: 45px;
+			&:nth-child(1) {
+				border-top: 0;
+			}
+			&:nth-child(5) {
+				height: 215px;
+			}
+			border-top: 1px dotted #d3d3d3;
+			& > div {
+				float: left;
+			}
+			.head {
+				width: 100px;
+				font-size: 16px;
+				color: #787777;
+				line-height: 45px;
+				padding-left: 15px;
+				box-sizing: border-box;
+			}
+			.content {
+				width: calc(100% - 100px);
+				input {
+					border:1px solid #d1d1d1;
+					&[type=text] {
+						width: 310px;
+						height: 30px;
+						margin-top: 6px;
+					}
+					&[type=file] {
+						width: 560px;
+						height: 30px;
+						margin-top: 6px;
+					}
+				}
+				textarea {
+					width: 560px;
+					height: 200px;
+					border:1px solid #d1d1d1;
+					margin-top: 6px;
+					display: inline-block;
+				}
+ 			}
+		}
+	}
+	.btnWrap {
+		text-align: right;
+		@include after();
+		margin-top: 30px;
+		& > div {
+			display: inline-block;
+			& > div {
+				display: inline-block;
+				width: 80px;
+				height: 30px;
+				cursor: pointer;
+				float:left;
+				&:nth-child(1) {
+					background-image: url("/custom/assets/img/question/writeBtn.png");
+					background-size: 100% 100%;
+					margin-right: 7px;
+					input {
+						width: 80px;
+						height: 30px;
+						display: inline-block;
+						opacity: 0;
+						cursor: pointer;
+					}
+				}
+				&:nth-child(2) {
+					background-image: url("/custom/assets/img/question/cancelBtn.png");
+					background-size: 100% 100%;
+				}
+			}
+		}
+	}
+}

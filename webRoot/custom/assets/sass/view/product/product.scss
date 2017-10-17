@@ -1,0 +1,39 @@
+@mixin container(){
+	width: 1100px;
+	margin:0 auto;
+}
+@mixin after(){
+	&::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
+
+
+.productWrap {
+	@include container();
+	height: 1500px;
+	.summary {
+		margin-top: 25px;
+		margin-bottom: 15px;
+		text-align: left;
+		color: #636363;
+		font-size: 20px;
+	}
+	.contents {
+		@include after();
+		.content {
+			float:left;
+			width: calc(50% - 60px);
+			margin-right: 120px;
+			margin-bottom: 50px;
+			&:nth-child(2n) {
+				margin-right: 0;
+			}
+			img {
+				width: 100%;
+			}
+		}
+	}
+}

@@ -1,0 +1,136 @@
+@mixin container(){
+	width: 1100px;
+	margin:0 auto;
+}
+@mixin after(){
+	&::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
+
+.introWrap {
+	height: 1100px;
+
+	@include container();
+	text-align: right;
+	.greetWrap {
+		@include after();
+		display: none;
+		&.active {
+			display: block;
+		}
+		& > div {
+			float:left;
+			margin-top: 80px;
+		}
+		.imgWrap {
+			width: 500px;
+			text-align: center;
+		}
+		.textWrap {
+			width: 600px;
+			p {
+				text-align: left;
+				&:nth-child(1) {
+					margin-top: 30px;
+					font-size: 28px;
+					color: #4f7dd4;
+				}
+				&:nth-child(2) {
+					margin-top: 30px;
+					color: #636363;
+					font-size: 18px;
+					line-height: 26px;
+				}
+			}
+		}
+	}
+	.manageWrap {
+		display: none;
+		&.active {
+			display: block;
+		}
+		position: relative;
+		img {
+			position: absolute;
+			top:180px;
+			left:160px;
+			z-index: 1;
+		}
+		.imgText {
+			position: absolute;
+			top:320px;
+			left:220px;
+			color: #fff;
+			z-index: 10;
+			p {
+				text-align: center;
+				&:nth-child(1) {
+					font-size: 22px;
+				}
+				&:nth-child(2) {
+					font-size: 44px;
+					font-weight: bold;
+				}
+			}
+		}
+		.titleWrap {
+			text-align: center;
+			margin-top: 60px;
+			p {
+				font-size: 20px;
+				color: #4f7dd4;
+				position: relative;
+				&:nth-child(1) {
+					padding:0 15px;
+					display: inline-block;
+					&:before {
+						color: #4f7dd4;
+						content: "|";
+						position: absolute;
+						top:0;
+						left:-7.5px;
+					}
+					&:after {
+						color: #4f7dd4;
+						content: "|";
+						position: absolute;
+						top:0;
+						right:-7.5px;
+					}
+				}
+				&:nth-child(2) {
+					margin-top: 15px;
+					font-size: 32px;
+					color: #252525;
+					font-weight: bold;
+					span {
+						color: #4f7dd4;
+					}
+				}
+			}
+		}
+		.textWrap {
+			position: absolute;
+			top:213px;
+			left:420px;
+			p {
+				text-align: left;
+				color:#333333;
+				font-weight: bold;
+				font-size: 20px;
+				margin-bottom: 61px;
+				&:nth-child(2) {
+					margin-left: 42px;
+					margin-bottom: 57px;
+				}
+				&:nth-child(3) {
+					margin-left: 45px;
+					margin-bottom: 58px;
+				}
+			}
+		}
+	}
+}
